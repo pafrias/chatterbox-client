@@ -3,23 +3,19 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
-    /*
-      for all
-    */
+    Messages.fetchAll();
   },
-
-  renderAll: function(room = 'lobby') { //for rooms?
+  
+  render: function(messages) { //expect array
     /*
     for every message 
     render all messages that match the room
     */
 
-    this.$chats.html("");
-    for (var i = 0; i < Messages._storage.length; i++) {
-      //if (Messages._storage[i].roomname === room) {
-      this.renderMessage(Messages._storage[i]);
+    this.$chats.html('');
+    for (var i = 0; i < messages.length; i++) {
+      this.renderMessage(messages[i]);
     }
-    //}
   },
   
   renderMessage: function(message) { //individual messages

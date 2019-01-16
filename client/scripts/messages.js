@@ -15,14 +15,24 @@ var Messages = {
     };
     Parse.create(message, () => {
       // Parse.readAll(() => {
-      //   MessagesView.renderAll();
+      //   MessagesView.render();
       window.location.reload(true);
       //})
     });
   },
 
-  fetch: function() {
-    
+  fetchAll: function() {
+    MessagesView.render(this._storage);
+  },
+
+  fetchRoom: function(room) {
+    var result = [];
+    for (var message of this._storage) {
+      if (message.roomname === room) {
+        result.push(message);
+      }
+    }
+    MessagesView.render(result);
   }
   // stores local messages
   

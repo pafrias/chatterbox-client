@@ -14,7 +14,6 @@ var App = {
       FormView.initialize();
       RoomsView.initialize();
       MessagesView.initialize();
-      MessagesView.renderAll();
       App.stopSpinner();
     });
   },
