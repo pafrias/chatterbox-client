@@ -4,14 +4,18 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
+    this.renderRoom({room: 'test'});
+    // populate rooms
+    // render all rooms?
   },
 
   render: function() {
   },
   
   renderRoom: function(room) {
-    var roomName = _.template(`<%= room %>`);
-    this.$select.append(`<div>${roomName}</div>`);
+    var roomName = _.template(`<option><%= room %></option>`);
+    var trueName = roomName(room);
+    this.$select.append(trueName);
   }
 
 };

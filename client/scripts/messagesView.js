@@ -13,6 +13,8 @@ var MessagesView = {
     for every message 
     render all messages that match the room
     */
+
+    this.$chats.html("");
     for (var i = 0; i < Messages._storage.length; i++) {
       //if (Messages._storage[i].roomname === room) {
       this.renderMessage(Messages._storage[i]);
@@ -30,7 +32,6 @@ var MessagesView = {
     if (message.roomname === undefined) {
       return;
     } else { 
-      debugger;
       this.$chats.append(MessageView.render(message));
     }
   },
